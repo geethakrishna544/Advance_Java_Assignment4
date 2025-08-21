@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Search</title>
+</head>
+<body>
+<h2>Product List</h2>
+
+<form action="/products" method="get">
+    Keyword: <input type="text" name="keyword" th:value="${keyword}" />
+    Size: <input type="text" name="size" th:value="${size}" />
+    Color: <input type="text" name="color" th:value="${color}" />
+    <button type="submit">Search</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.title}"></td>
+        <td th:text="${product.size}"></td>
+        <td th:text="${product.color}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
